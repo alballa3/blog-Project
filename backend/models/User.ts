@@ -1,13 +1,14 @@
 import { Schema } from "mongoose";
 import { model } from "mongoose";
 import { hash } from "bcrypt";
+import jsw from 'jsonwebtoken';
 export interface IUser {
     id?: Schema.Types.ObjectId,
     name: string,
     email: string,
     password: string,
     role?: string,
-    posts?: Schema.Types.ObjectId ,
+    posts?: Schema.Types.ObjectId,
     session: {
         token: string,
         lastLogin: Date
@@ -42,6 +43,14 @@ userShema.pre("save", async function (next) {
     }
 })
 
+interface Isession {
+    username: string, email: string
+}
+// This to get The session For The User inside The Backend Only
+export function session(token: string) {
+    const decode:Isession = jsw.decode(token) as Isession
+    return decode
+}
 
 const User = model<IUser>("user", userShema)
 

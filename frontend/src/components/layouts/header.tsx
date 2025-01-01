@@ -53,14 +53,14 @@ export const Header: React.FC<HeaderProps> = ({
 
   const menuItems = [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
+    { label: 'About', href: '#se' },
     { label: 'Services', href: '/services' },
     { label: 'Contact', href: '/contact' }
   ];
 
   return (
     <TooltipProvider>
-      <header className="bg-white border-b border-gray-300 fixed w-full top-0 z-50 shadow-sm">
+      <header className="bg-white border-b border-gray-300  w-full top-0 z-50 shadow-sm">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={menuRef}>
           <div className="flex justify-between h-16 items-center">
             <a href="/" className="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
@@ -185,7 +185,6 @@ export const Header: React.FC<HeaderProps> = ({
                 {menuItems.map(({ label, href }) => (
                   <a
                     key={label}
-                    href={href}
                     className={`
                       block px-3 py-2 rounded-md text-base font-medium
                       text-gray-700 hover:text-blue-600

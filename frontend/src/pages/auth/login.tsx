@@ -14,6 +14,7 @@ import {
 import { EyeIcon, EyeOffIcon, LockIcon, MailIcon } from "lucide-react";
 import z, { Schema } from "zod";
 import { useNavigate } from "react-router";
+import { url } from "@/states";
 interface IError {
   email?: string;
   password?: string;
@@ -36,7 +37,7 @@ export default function Login() {
       return;
     }
     try {
-      const respond = await fetch("http://localhost:3000/api/auth/login", {
+      const respond = await fetch(`${url}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

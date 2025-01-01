@@ -23,10 +23,11 @@ export async function session(): Promise<ISession> {
 }
 
 export const AuthRoute: React.FC = () => {
-    const [state, setState] = React.useState(false) ;
+    const [state, setState] = React.useState<Boolean |null>(true) ;
 
     React.useEffect(() => {
         session().then((data) => setState(data.status));
+        console.log(state)
     }, []);
 
     

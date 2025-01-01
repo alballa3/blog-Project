@@ -2,6 +2,6 @@
     "watch": ["index.ts", "./controller", "./model", "./routes","./middleware"],
     "ext": "ts",
     "ignore": ["dist"],     
-    "exec": "ts-node index.ts"
+    "exec": "node -r esbuild-register index.ts tsc --noEmit --watch"
   }
   
